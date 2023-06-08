@@ -1,0 +1,19 @@
+{
+    "models": {
+        "labels": "白点"
+    },
+    "files": {
+        "images": "D:/Datasets/tile/train_imgs/198_29_t20201119103709229_CAM1_1.jpg",
+        "model": "./resource/model-onnx"
+    },
+    "Folders": {
+        "Download": "D:/Documents/repos/tile_defect_detection_app/app/download"
+    },
+    "record": {
+        "url": "localhost:8080"
+    },
+    "QFluentWidgets": {
+        "ThemeColor": "#ff009faa",
+        "ThemeMode": "Auto"
+    }
+}

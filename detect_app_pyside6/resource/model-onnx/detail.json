@@ -1,0 +1,62 @@
+{
+    "version": "1.0.0",
+    "codebase": {
+        "task": "ObjectDetection",
+        "codebase": "mmyolo",
+        "version": "0.5.0",
+        "pth": "/mnt/c/Users/xufang/source/repos/mmyolo/work_dirs/tile_yolov5_n-v61_fast_8xb2-100e_coco/epoch_300.pth",
+        "config": "/mnt/c/Users/xufang/source/repos/mmyolo/configs/yolov5/tile_yolov5_n-v61_fast_8xb2-100e_coco.py"
+    },
+    "codebase_config": {
+        "type": "mmyolo",
+        "task": "ObjectDetection",
+        "model_type": "end2end",
+        "post_processing": {
+            "score_threshold": 0.05,
+            "confidence_threshold": 0.005,
+            "iou_threshold": 0.5,
+            "max_output_boxes_per_class": 200,
+            "pre_top_k": 5000,
+            "keep_top_k": 100,
+            "background_label_id": -1
+        },
+        "module": [
+            "mmyolo.deploy"
+        ]
+    },
+    "onnx_config": {
+        "type": "onnx",
+        "export_params": true,
+        "keep_initializers_as_inputs": false,
+        "opset_version": 11,
+        "save_file": "end2end.onnx",
+        "input_names": [
+            "input"
+        ],
+        "output_names": [
+            "dets",
+            "labels"
+        ],
+        "input_shape": null,
+        "optimize": true,
+        "dynamic_axes": {
+            "input": {
+                "0": "batch",
+                "2": "height",
+                "3": "width"
+            },
+            "dets": {
+                "0": "batch",
+                "1": "num_dets"
+            },
+            "labels": {
+                "0": "batch",
+                "1": "num_dets"
+            }
+        }
+    },
+    "backend_config": {
+        "type": "onnxruntime"
+    },
+    "calib_config": {}
+}
